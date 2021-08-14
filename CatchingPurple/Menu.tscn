@@ -1,0 +1,79 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Menu.gd" type="Script" id=1]
+[ext_resource path="res://Ranchers-Regular.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 100
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 250
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=4]
+default_font = SubResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 50
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=6]
+default_font = SubResource( 5 )
+
+[node name="Menu" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 125.0
+margin_top = 116.0
+margin_right = 1666.0
+margin_bottom = 971.0
+theme = SubResource( 2 )
+
+[node name="Title" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_right = 1541.0
+margin_bottom = 314.0
+theme = SubResource( 4 )
+text = "Catching Purple"
+
+[node name="StartButton" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 318.0
+margin_right = 1541.0
+margin_bottom = 450.0
+text = "Start"
+
+[node name="QuitButton" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 454.0
+margin_right = 1541.0
+margin_bottom = 586.0
+text = "Quit"
+
+[node name="Note" type="Label" parent="CenterContainer/VBoxContainer"]
+margin_top = 590.0
+margin_right = 1541.0
+margin_bottom = 855.0
+theme = SubResource( 6 )
+text = "ps Catch the Purple. you have three colours to use, Red, Yellow and Green. 
+But, at a time, you can control only one colour. 
+Use \"space\" or \"enter\" to shift control to the next colour. 
+When you are not controlling a colour, it will keep moving towards you."
+align = 1
+[connection signal="pressed" from="CenterContainer/VBoxContainer/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
